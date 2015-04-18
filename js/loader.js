@@ -83,7 +83,7 @@ function audioPreloader(file, callback) {
 			this.source.buffer = this.buffer;
 			this.source.connect(this.gainNode);
 			this.source.loop = this.loop;
-			this.source.noteOn(0);
+			(this.source.noteOn || this.source.start).call(this.source, 0);
 			if (this.volume) this.setVolume(this.volume);
 		}
 
