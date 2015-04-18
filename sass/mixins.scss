@@ -1,0 +1,23 @@
+@mixin respond-to($type) {
+	@if $type == handheld {
+		@media screen and (max-width: 767px) {
+			@content;
+		}
+
+		@media screen and (-webkit-min-device-pixel-ratio:0) and (device-width: 768px) {
+			@content;
+		}
+	}
+
+	@if $type == webkit {
+		@media screen and (-webkit-min-device-pixel-ratio: 0) {
+			@content;
+		}
+	}
+
+	@if $type == nonhandheld {
+		@media screen and (min-width: 769px) {
+			@content;
+		}
+	}
+}

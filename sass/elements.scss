@@ -1,0 +1,296 @@
+@import "colors";
+@import "compass/css3";
+@import "mixins";
+
+
+.game-grad {
+	background: $blue;
+	@include background($blue linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1)));
+}
+
+.game-container {
+	@extend .game-grad;
+	font-family: "Glegoo", sans-serif;
+}
+
+.game-title {
+	width: 100%;
+	display: block;
+	text-align: center;
+	font-size: 550%;
+	font-family: 'Lilita One', sans-serif;
+	text-transform: uppercase;
+	margin: 20px 0 30px;
+	color: $green;
+
+	@include respond-to(webkit) {
+		color: transparent;
+		@include background(linear-gradient(top, $green, darken($green, 10)));
+		-webkit-background-clip: text;
+		-webkit-text-stroke: 1px #000;
+		text-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
+	}
+}
+
+.game-layer {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+
+	&.opaque {
+		@extend .game-grad;
+	}
+
+	h2 {
+		font-family: 'Lilita One';
+		font-size: 300%;
+		text-transform: uppercase;
+		margin-bottom: 20px;
+		color: #fff;
+	}
+}
+
+@include respond-to(webkit) {
+	.game-layer h2, .game-menu li {
+		@include background(linear-gradient(top, #fff, #eee));
+		-webkit-background-clip: text;
+		color: transparent;
+		-webkit-text-stroke: 1px #000;
+		text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+	}
+}
+
+@include respond-to(handheld) {
+	.game-layer h2, .game-menu li {
+		background: none;
+		-webkit-background-clip: none;
+		color: white;
+		-webkit-text-stroke: 0px;
+		text-shadow: 0;
+	}
+}
+
+.game-error {
+	display: block;
+	text-align: center;
+	font-family: "Glegoo", sans-serif;
+	padding: 20px;
+	line-height: 20px;
+}
+
+.game-loader {
+	@include border-radius(20px);
+	width: 80%;
+	height: 50px;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 50%;
+	margin: 0 auto 0 auto;
+	border: 10px solid #fff;
+
+	.loader-body {
+		@include transition(0.3s width ease-in-out);
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		background: #fff;
+		width: 0%;
+		max-width: 100%;
+	}
+}
+
+.game-menu {
+	width: 100%;
+	border-top: 5px solid #fff;
+	border-bottom: 5px solid #fff;
+	text-align: center;
+	padding: 10px 0px;
+	color: #fff;
+	font-weight: 900;
+	font-size: 200%;
+	text-transform: uppercase;
+	font-family: 'Lilita One', sans-serif;
+	position: relative;
+	top: 20px;
+
+	li {
+		margin-bottom: 10px;
+		cursor: pointer;
+		list-style: none;
+
+		&.selected {
+			text-shadow: 0px 0px 5px #eee;
+		}
+	}
+}
+
+.layer-name {
+
+	h2 {
+		left: 0;
+		right: 0;
+		width: 100%;
+		text-align: center;
+	}
+
+	input {
+		width: 300px;
+		height: 50px;
+		border: 1px solid #fff;
+		text-align: center;
+		text-transform: capitalize;
+		background: darken($blue, 10%);
+		color: #fff;
+		font-size: 200%;
+
+		@include border-radius(0);
+		@include box-sizing(border-box);
+
+		&:not(:first-child) {
+			margin-top: 10px;	
+		}
+	}
+}
+
+.game-green-bg {
+	position: absolute;
+	$size: 300px;
+	width: $size;
+	height: $size;
+	margin-left: -#{$size/2};
+	bottom: -#{$size/2};
+	left: 50%;
+	@include border-radius($size);
+	background: $green;
+	z-index: 2;
+
+	&:before {
+		content: '';
+		display: block;
+		$size: 150px;
+		width: $size;
+		height: $size;
+		@include border-radius($size);
+		position: absolute;
+		left: 0px;
+		bottom: 0px;
+		background: #000;
+		z-index: 3;
+	}
+}
+
+.game-no-outline {
+	outline: none;
+}
+
+.layer-game {
+	.platform {
+		width: 360px;
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		height: 30px;
+
+		div {
+			background: $green;
+			height: 30px;
+			float: left;
+
+			&:first-child {
+				@include border-radius(0px 5px 5px 0px);
+			}
+
+			&:last-child {
+				@include border-radius(5px 0px 0px 5px);
+			}
+
+		}
+
+		&.platform-1, &.platform-2, &.platform-3 {
+			div:first-child {
+				width: 320px;
+			}
+
+			div:last-child {
+				display: none;
+			}
+		}
+
+		&.platform-4 {
+			div:first-child {
+				width: 160px;
+				margin-right: 40px;
+			}
+
+			div:last-child {
+				width: 160px;
+			}
+		}
+
+		&.platform-5, &.platform-6 {
+			div:last-child {
+				margin-left: 40px;
+				width: 320px;
+			}
+		}
+
+		&.platform-7 {
+			div:first-child, div:last-child {
+				@include border-radius(5px);
+				margin-left: 40px;
+				width: 120px;
+			}
+		}
+
+		&.platform-8 {
+			div:first-child {
+				width: 250px;
+				margin-right: 40px;
+			}
+
+			div:last-child {
+				width: 70px;
+			}
+		}
+
+		&.platform-9 {
+			div:first-child {
+				width: 280px;
+				margin-right: 40px;
+			}
+
+			div:last-child {
+				width: 40px;
+			}
+		}
+
+		&.platform-0 {
+			div:first-child {
+				width: 280px;
+				margin-right: 40px;
+			}
+
+			div:last-child {
+				width: 40px;
+			}
+		}
+	}
+}
+
+.game-character {
+	width: 25px;
+	height: 25px;
+	background: $red;
+	@include border-radius(50px);
+	position: absolute;
+	left: 10px;
+	bottom: 590px;
+}

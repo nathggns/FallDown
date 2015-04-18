@@ -1,0 +1,112 @@
+@import "compass/css3";
+@import "mixins";
+@import "colors";
+@import url(http://fonts.googleapis.com/css?family=Lilita+One);
+@import url(http://fonts.googleapis.com/css?family=Glegoo);
+@import url(elements.css);
+@import url(reset.css);
+
+html {
+	background: #4a4a4a;
+	@include background(#4a4a4a fixed linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, .3)));
+	height: 100%;
+}
+
+.scoreCounter {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	color: #fff;
+	font: {
+		family: "Lilita One";
+		size: 2em;
+		weight: bold;
+	}
+}
+
+.credits {
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+	color: #fff;
+	font: {
+		family: "Glegoo";
+		size: 1em;
+	}
+
+	a {
+		font-weight: bold;
+		text-decoration: none;
+		color: white;
+		@include transition(all .3s ease);
+	}
+
+	line-height: 1.5em;
+}
+
+
+.game-container {
+
+	width: 360px;
+	height: 640px;	
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: 1px solid #777;
+	overflow: hidden;
+
+	margin: {
+		top: -320px;
+		left: auto;
+		right: auto;
+	}
+
+	left: 0;
+	right: 0;
+	top: 50%;
+
+	&:focus {
+		outline: none;
+	}
+
+	canvas {
+		font-family: "Lilita One";
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
+.font-loader {
+	opacity: 0;
+	font-family: "Lilita One";
+}
+
+.IE {
+	text-align: center;
+	color: #fff;
+	font: {
+		family: sans-serif;
+		weight: bold;
+	}
+
+	width: 500px;
+	margin: auto;
+	height: auto;
+	background: transparent;
+	h1, h2 { line-height: 1.5em; }
+
+	h1 { font-size: 3em; margin: 1em auto; }
+	h2 { font-size: 2em; }
+}
+
+.webkitMessage {
+	font-family: sans-serif;
+	position: absolute;
+	left: 5px;
+	bottom: 5px;
+	color: #fff;
+
+	&.hide { display: none; }
+}

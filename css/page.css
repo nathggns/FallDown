@@ -1,0 +1,120 @@
+@import url(http://fonts.googleapis.com/css?family=Lilita+One);
+@import url(http://fonts.googleapis.com/css?family=Glegoo);
+@import url(elements.css);
+@import url(reset.css);
+/* line 9, ../sass/page.scss */
+html {
+  background: #4a4a4a;
+  background: #4a4a4a fixed -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.3)));
+  background: #4a4a4a fixed -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+  background: #4a4a4a fixed -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+  background: #4a4a4a fixed -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+  background: #4a4a4a fixed -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+  background: #4a4a4a fixed linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+  height: 100%;
+}
+
+/* line 15, ../sass/page.scss */
+.scoreCounter {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  color: #fff;
+  font-family: "Lilita One";
+  font-size: 2em;
+  font-weight: bold;
+}
+
+/* line 27, ../sass/page.scss */
+.credits {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  color: #fff;
+  font-family: "Glegoo";
+  font-size: 1em;
+  line-height: 1.5em;
+}
+/* line 37, ../sass/page.scss */
+.credits a {
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+/* line 48, ../sass/page.scss */
+.game-container {
+  width: 360px;
+  height: 640px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 1px solid #777;
+  overflow: hidden;
+  margin-top: -320px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 50%;
+}
+/* line 69, ../sass/page.scss */
+.game-container:focus {
+  outline: none;
+}
+/* line 73, ../sass/page.scss */
+.game-container canvas {
+  font-family: "Lilita One";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 81, ../sass/page.scss */
+.font-loader {
+  opacity: 0;
+  font-family: "Lilita One";
+}
+
+/* line 86, ../sass/page.scss */
+.IE {
+  text-align: center;
+  color: #fff;
+  font-family: sans-serif;
+  font-weight: bold;
+  width: 500px;
+  margin: auto;
+  height: auto;
+  background: transparent;
+}
+/* line 98, ../sass/page.scss */
+.IE h1, .IE h2 {
+  line-height: 1.5em;
+}
+/* line 100, ../sass/page.scss */
+.IE h1 {
+  font-size: 3em;
+  margin: 1em auto;
+}
+/* line 101, ../sass/page.scss */
+.IE h2 {
+  font-size: 2em;
+}
+
+/* line 104, ../sass/page.scss */
+.webkitMessage {
+  font-family: sans-serif;
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  color: #fff;
+}
+/* line 111, ../sass/page.scss */
+.webkitMessage.hide {
+  display: none;
+}
