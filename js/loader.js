@@ -109,7 +109,7 @@ function audioPreloader(file, callback) {
 		this.loadFile(file, function(event, request) {
 			context.decodeAudioData(request.response, function(buffer) {
 				obj.buffer = buffer;
-				obj.gainNode = context.createGainNode();
+				obj.gainNode = (context.createGainNode || context.createGain).call(content);
 				obj.gainNode.connect(context.destination);
 				callback.call(obj, file);
 			});
